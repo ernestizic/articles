@@ -8,14 +8,13 @@ class AddPost extends Component {
 
      onSubmit =(e)=> {
          e.preventDefault();
-         //this.props.addPost(this.state.title);
          this.setState({newPost: {
              title: this.refs.title.value,
              body: this.refs.body.value
          }}, function(){
              //console.log(this.state)
              this.props.addPost(this.state.newPost);
-             this.setState({newPost: ''});
+            // this.setState({newPost: ''});
          });
      }
 
@@ -26,11 +25,11 @@ class AddPost extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label htmlFor="title">Title:</label>
-                        <input type="text" ref="title" className="form-control" value={this.state.title} required/>
+                        <input type="text" ref="title" className="form-control" required/> {/* problem here from using ref */}
                     </div>
                     <div className="form-group">
                         <label htmlFor="title">Body:</label>
-                        <input type="text" ref="body" className="form-control" value={this.state.value} required/>
+                        <textarea ref="body" className="form-control" required> </textarea> {/* problem here from textarea */}
                     </div>
                     
                     <button type="submit" className="btn btn-primary">Submit</button>

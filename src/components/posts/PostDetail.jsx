@@ -21,7 +21,7 @@ class PostDetail extends Component {
 
         const post  = this.state.post ? (
             <div className="container post">
-                <h4>{this.state.post.title}</h4>
+                <h4 style={{ paddingTop: "20px", paddingBottom: "10px" }}>{this.state.post.title}</h4>
                 <p>{this.state.post.body}</p>
             </div>
         ) : (

@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 class Post extends Component {
 
     render() { 
+        const { id, title, body } = this.props.post
         return ( 
-            <div style={postListStyle}>
-                <Link to={'/' + this.props.post.id}> 
-                    <h3> {this.props.post.title} </h3> 
+            <div style={postListStyle} className="post">
+                <Link to={'/' + id}> 
+                    <h3> {title} </h3> 
                 </Link>
-                <p> {this.props.post.body} </p>
-                <p style={{textAlign:'right'}}><button onClick={()=>this.props.delPost(this.props.post.id)}>Delete</button></p>
+                <p> {body} </p>
+                <p style={{textAlign:'right'}}><button onClick={()=>this.props.delPost(id)}>Delete</button></p>
             </div>
-         );
+         );  
     }
 }
 
