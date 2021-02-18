@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
+
+/*
 class PostDetail extends Component {
     state = {
         post: null
@@ -34,6 +36,37 @@ class PostDetail extends Component {
             </div>
          );
     }
+}
+ 
+export default PostDetail;
+*/
+
+const PostDetail = (props) => {
+    const [postDetail, setPostDetail] = useState("");
+
+
+    useEffect(()=> {
+        const fetchDetails = async ()=> {
+            let id = props.match.params.post_id;
+            axios.get ('https://jsonplaceholder.typicode.com/posts/' + id)
+                .then(res => setPostDetail(res.data))
+        }
+        fetchDetails();
+    })
+
+    const post = postDetail ? (
+        <div className="container post">
+            <h4 style={{ paddingTop: "20px", paddingBottom: "10px" }}>{postDetail.title}</h4>
+            <p>{postDetail.body}</p>
+        </div>
+    ) : (
+        <div className="container"> Loading post... </div>
+    )
+    return ( 
+        <div className="container">
+            {post}
+        </div>
+     );
 }
  
 export default PostDetail;

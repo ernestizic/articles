@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class AddPost extends Component {
     state = { 
         newPost:{}
@@ -22,6 +23,7 @@ class AddPost extends Component {
         return ( 
             <div className="container">
                 <h4>Add a post</h4>
+
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label htmlFor="title">Title:</label>

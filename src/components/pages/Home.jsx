@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PostList from '../posts/PostList';
 //import {v4 as uuid} from 'uuid';
-import SearchBar from '../layout/SearchBar';
-import axios from 'axios';
+//import SearchBar from '../layout/SearchBar';
+//import axios from 'axios';
+import PostContextProvider from '../contexts/PostContext';
 //import AddPost from '../posts/AddPost';
      
 
-
+/*
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -30,7 +31,7 @@ delPost =(id)=> {
             (post => post.id !== id)]}
         ));
 }
-
+*/
 /*
 addPost =(post)=> {
     axios.post('https://jsonplaceholder.typicode.com/posts', {
@@ -39,6 +40,8 @@ addPost =(post)=> {
     .then(res => this.setState({posts: [...this.state.posts, res.data]}))
 }
 */
+
+/*
 
     render() { 
         const filteredPosts = this.state.posts.filter(post => (
@@ -53,6 +56,24 @@ addPost =(post)=> {
             </div>  
          );
     }
+}
+ 
+export default Home;
+
+*/
+
+const Home = () => {
+    return ( 
+        <div>
+            <div className="container">
+                <div className="row">
+                    <PostContextProvider>
+                        <PostList />
+                    </PostContextProvider>
+                </div>
+            </div>
+        </div>
+     );
 }
  
 export default Home;
