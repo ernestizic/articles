@@ -1,3 +1,5 @@
+// This component is not being used
+
 import React, { Component } from 'react';
 
 

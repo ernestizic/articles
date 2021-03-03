@@ -11,15 +11,16 @@ const PostContextProvider = (props) => {
 
     useEffect(()=> {
         const fetchPosts = async ()=> {
-            const res = await axios.get("https://jsonplaceholder.typicode.com/posts")
-            setPosts(res.data)
+            const res = await axios.get(`https://jsonplaceholder.typicode.com/posts`)
+            setPosts(res.data.slice(0, 5))
             setIsLoading(false)
         }
         fetchPosts();
     }, [])
 
 
-    //Fuction to delete post
+
+    //Fuction to delete post    
     const delPost =(id)=> {
         axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
             .then (res => setPosts([...posts.filter(post =>
@@ -37,7 +38,7 @@ const PostContextProvider = (props) => {
 
 
     return ( 
-        <PostContext.Provider value={{posts, delPost, isLoading, addPost}}>
+        <PostContext.Provider value={{posts, isLoading, delPost, addPost}}>
             {props.children}
         </PostContext.Provider>
      );

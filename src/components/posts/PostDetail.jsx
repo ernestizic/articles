@@ -52,7 +52,7 @@ const PostDetail = (props) => {
                 .then(res => setPostDetail(res.data))
         }
         fetchDetails();
-    })
+    }, [props])
 
     const post = postDetail ? (
         <div className="container post">
