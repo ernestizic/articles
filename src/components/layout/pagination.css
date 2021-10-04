@@ -1,0 +1,28 @@
+.pagination-nav{
+    margin-top: 50px;
+    background-color: gray;
+    padding: 40px;
+}
+.pagination-nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.pagination-nav li {
+    float: left;
+}
+
+.pagination-nav li button {
+    display: block;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    background-color: #b4b4b4;
+}
+
+.pagination-nav li button:hover {
+    background-color: #3c3c3c;
+    color: #fff;
+}

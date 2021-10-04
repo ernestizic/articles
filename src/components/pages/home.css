@@ -1,0 +1,40 @@
+
+.homepage{
+    color: #fff;
+    background-image: url("../../images/blog-detail-01.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+h2{
+    text-align: center;
+    padding-top: 30px;
+    font-size: 70px;
+}
+.featured{
+    width: 45%;
+    padding-left: 50px;
+    margin-top: 100px;
+}
+
+.featured h1{
+    font-size: 40px;
+}
+.featured h4{
+    color: rgb(92, 92, 199);
+    text-align: left;
+}
+code{
+    color: #ec2dad;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+    .featured{
+        width: 100%;
+        margin-top: 100px;
+        padding: 10px;
+    }
+    .featured h1{
+        font-size: 29px;
+    }
+}

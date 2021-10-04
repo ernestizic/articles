@@ -1,0 +1,149 @@
+
+.articles-page-head{
+    background: gray;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #f0f0f0;
+}
+.add-new{
+    background: #f0f0f0;
+    font-size: 14px;
+    color: #3c3c3c;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: 0.2s ease-in-out;
+    padding: 9px;
+}
+.add-new:hover{
+    background: #3cb371;
+    color: #fff;
+}
+
+
+.articles-search input[type=search] {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: none;
+}
+
+.articles-search input[type=search]:focus {
+    width: 100%;
+    outline: none;
+}
+
+
+select{
+    background: #f0f0f0;
+    padding: 7px;
+    border-radius: 3px;
+    outline: none;
+}
+.value{
+    padding: 7px;
+}
+
+#articles-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#articles-list td, #articles-list th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#articles-list tr:nth-child(even){background-color: #f2f2f2;}
+#articles-list tr:hover {background-color: #ddd;}
+
+#articles-list th {
+    padding: 12px;
+    text-align: left;
+    background-color: #b4b4b4;
+    color: white;
+}
+
+.msg{
+    text-align: center;
+    padding: 60px;
+}
+
+.fa-edit{
+    margin-left: 10px;
+    color: rgb(207, 141, 19);
+}
+.fa-edit:hover{
+    cursor: pointer;
+}
+.fa-del{
+    float: right; 
+    margin-right: 10px; 
+    font-size: 20px; 
+    color: #ff0000;
+}
+.fa-del:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+.article-add-page input[type=text]:focus{
+    background-color: #fff;
+}
+.article-add-page .go-back{
+    padding: 5px 10px;
+    margin-left: 20px;
+}
+
+.article-add-page .go-back:hover{
+    background-color: #3c3c3c;
+    color: #fff;
+}
+.article-add-page .category{
+    padding: 20px 0;
+}
+.article-add-page .category input[type=radio]{
+    margin: 10px 5px;
+}
+
+.article-add-page form {
+    background-color: #787878;
+    padding: 20px;
+    margin: 20px;
+    color: #fff;
+    border-radius: 12px;
+}
+.article-add-page .content{
+    width: 100%;
+    padding: 20px;
+    outline: none;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+}
+.article-add-page .btn{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgb(103, 133, 103);
+}
+
+.create-post-success-alert{
+    background-color: #1cc267;
+    padding: 7px;
+    text-align: center;
+    margin-top: 10px ;
+}
+.create-post-failure-alert{
+    background-color: rgb(241, 40, 40);
+    padding: 7px;
+    text-align: center;
+    margin-top: 10px ;
+}
+
+.article-add-page .file-div .error{
+    color: red;
+}

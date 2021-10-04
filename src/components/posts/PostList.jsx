@@ -31,7 +31,7 @@ const PostList = () => {
         <h4 style={{padding: '30px'}}>Loading...</h4>
     ) : (
         posts.map(post => (
-            <Post key={post.id} post={post} />
+            <Post key={post._id} post={post} />
         ))
     )
     return ( 

@@ -1,0 +1,90 @@
+header {
+  background-image: url("../../images/slider_7_1900x600.jpg");
+  background-repeat: no-repeat;
+  height: 50vh;
+}
+
+h4 {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 25px;
+}
+.por {
+  text-decoration: underline;
+}
+
+.sport-page-main {
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.latest {
+  border-top: 2px solid #ec2dad;
+  background: #f0f0f0;
+  width: 27%;
+  color: grey;
+  word-wrap: break-word;
+}
+.article-grid {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.article-col {
+  border: 1px solid navy;
+  position: relative;
+  max-width: 100%;
+}
+.article-col img {
+  display: block;
+  width: 100%;
+  height: 250px;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.article-col:hover .overlay {
+  opacity: 1;
+}
+
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .sport-page-main {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .latest {
+    width: 100%;
+    color: grey;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+    margin-top: -30px;
+  }
+  .article-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+
+  .overlay {
+    opacity: 1;
+  }
+}

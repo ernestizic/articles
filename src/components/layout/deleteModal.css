@@ -1,0 +1,47 @@
+.delete-modal{
+    position: fixed;
+    top: 27%;
+    left: 35%;
+    width: 40%;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    color: #fff;
+}
+.delete-modal .close-modal{
+    color: gray;
+}
+.delete-modal .close-modal:hover{
+    cursor: pointer;
+}
+.delete-modal .modal-head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+.delete-modal .modal-body{
+    padding: 20px 0;
+    text-align: center;
+}
+.delete-modal .modal-footer{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.delete-modal .modal-footer button{
+    padding: 7px 20px;
+    border: none;
+}
+.delete-modal .modal-footer button:hover{
+    cursor: pointer;
+}
+
+.modal-footer .modal-confirm-delete{
+    background-color: rgb(196, 34, 34);
+    color: #fff;
+}
+
+.modal-footer .modal-confirm-delete:hover{
+    background-color: rgb(240, 22, 22);
+    color: #fff;
+}

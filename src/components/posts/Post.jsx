@@ -35,7 +35,7 @@ const Post = ({post}) => {
     const {delPost} = useContext(PostContext);
     return ( 
         <div style={postListStyle} className="post">
-            <Link to={'/' + post.id}> 
+            <Link to={'/' + post._id}> 
                 <h3> {post.title} </h3> 
             </Link>
             <p> {post.body} </p>

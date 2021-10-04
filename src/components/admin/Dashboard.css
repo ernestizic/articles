@@ -1,0 +1,81 @@
+.dashboard{
+    color: #3c3c3c;
+}
+.sidenav {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 54px;
+    left: 0;
+    background-color:#fff;
+    overflow-x: hidden;
+    padding-top: 40px;
+}
+.logo-div{
+    color: #000;
+    float: left;
+}
+
+.sidenav li a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+}
+.icon{
+    font-size: 18px;
+    padding-right: 10px;
+}
+
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+.active {
+    background-color: #f0f0f0;
+}
+
+.main {
+    margin-left: 180px;
+    padding: 16px;
+    margin-top: 80px;
+}
+
+.admin-navbar{
+    /* overflow: hidden; */
+    background-color: #b4b4b4;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 12px;
+}
+.admin-navbar ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.admin-navbar li {
+    display: inline;
+    padding-left: 5px;
+    float: right;
+}
+.name{
+    padding-top: 7px;
+    font-size: 12px;
+}
+.avatar{
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.admin-navbar a{
+    color: #333;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+    .main {
+        padding: 5px;
+    }
+}

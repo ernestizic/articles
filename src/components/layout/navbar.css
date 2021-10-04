@@ -1,0 +1,172 @@
+.ham {
+  color: #fff;
+  font-size: 24px;
+  display: none;
+}
+#ham-close {
+  font-size: 30px;
+}
+.navbar-brand {
+  font-size: 30px;
+  padding-left: 50px;
+}
+.navbar {
+  display: flex;
+  background-color: #000;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 200px;
+  overflow: hidden;
+}
+.nav-item {
+  display: inline;
+  padding: 20px 40px;
+}
+.login-dropdown {
+  padding-top: 10px;
+  position: relative;
+  display: inline-block;
+}
+.dropdown-icon {
+  background-color: inherit;
+  color: white;
+  padding: 0 15px;
+  font-size: 16px;
+  border: none;
+}
+.login-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+  border-top: 4px solid #ec2dad;
+  padding: 15px 2px;
+  text-align: center;
+}
+.login-dropdown-content p {
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+.login-dropdown-content .login {
+  background-color: #ec2dad;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.login-dropdown-content .login:hover {
+  background-color: #f36fc7;
+}
+
+/* Show the dropdown menu on hover */
+.login-dropdown:hover .login-dropdown-content {
+  display: block;
+}
+
+.login-dropdown-content .signup {
+  color: #ec2dad;
+  font-size: 13px;
+}
+.login-dropdown-content .signup:hover {
+  color: #000;
+}
+
+.navbar a {
+  color: hsl(257, 7%, 63%);
+  text-decoration: none;
+}
+.navbar a:hover {
+  color: #fff;
+  background: inherit;
+}
+
+/** Small screen navbar */
+.small-screen-nav {
+  color: gray;
+  height: 0%;
+  width: 100%;
+  margin-top: 10px;
+  padding-left: 13px;
+  position: fixed;
+  top: 0;
+  left: 10;
+  background-color: #000;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.small-screen-nav .navbar-nav {
+  margin-top: 100px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.small-screen-nav .navbar-nav a {
+  padding: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  transition: 0.3s;
+}
+.more-h {
+  padding: 20px;
+  text-align: center;
+}
+.more {
+  display: flex;
+  justify-content: space-evenly;
+}
+.join {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.join .btn {
+  border: 1px solid #ec2dad;
+  padding: 10px 30px;
+}
+.join .btn-login {
+  border: 1px solid #ec2dad;
+  padding: 10px 45px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .ham {
+    color: #fff;
+    display: initial;
+  }
+
+  .navbar-brand {
+    font-size: 27px;
+    padding-left: 10px;
+    padding-top: 2px;
+  }
+  .navbar ul {
+    display: none;
+  }
+  .login-dropdown {
+    display: none;
+  }
+}
+
+/** 769px - 1024px: small screens, laptops */
+@media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 100px;
+    overflow: hidden;
+  }
+  .nav-item-login {
+    display: inline;
+    padding-left: 30px;
+  }
+}
