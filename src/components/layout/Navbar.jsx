@@ -1,13 +1,15 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { logout } from '../../redux/slices/users'
 import { FaUserAlt } from "react-icons/fa";
 import "./navbar.css";
 import Logout from "../auth/Logout";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 
 const Navbar = () => {
   const {isAuthenticated} = useSelector(state => state.users)
+  const dispatch = useDispatch()
 
 
   const openNav =()=>{
@@ -69,9 +71,11 @@ const Navbar = () => {
             </Link>
             </>
           )}
-          
-
         </div>
+      </div>
+
+      <div className='small-screen-admin'>
+        <Link to='/admin'> <FaUserAlt /> </Link>
       </div>
     </nav>
 
@@ -103,8 +107,14 @@ const Navbar = () => {
       </div>
 
       <div className='join'>
-        <Link to='/signup' className='btn'> JOIN NOW </Link>
-        <Link to='/login' className='btn-login'> LOGIN </Link>
+        {isAuthenticated ? (
+          <Link to="#" onClick={()=>dispatch(logout())} className='sm-sc-logout'>LOG OUT</Link>
+        ) : (
+          <>
+          <Link to='/signup' className='btn'> JOIN NOW </Link>
+          <Link to='/login' className='btn-login'> LOGIN </Link>
+          </>
+        )}
       </div>
     </div>
     </>
