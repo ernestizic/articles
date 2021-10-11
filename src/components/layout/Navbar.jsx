@@ -1,17 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaUserAlt } from "react-icons/fa";
 import "./navbar.css";
+import Logout from "../auth/Logout";
+import { useSelector } from "react-redux";
+
 
 const Navbar = () => {
+  const {isAuthenticated} = useSelector(state => state.users)
+
+
   const openNav =()=>{
     const nav = document.querySelector(".small-screen-nav");
     nav.style.height = "100%";
   }
+
   const closeNav = () => {
     const nav = document.querySelector(".small-screen-nav");
     nav.style.height = "0%";
   };
+
   return (
     <>
     <nav className='navbar'>
@@ -23,24 +31,24 @@ const Navbar = () => {
 
       <ul className='nav-ul'>
         <li className='nav-item'>
-          <Link className='navlink' to='/technology'>
+          <NavLink className='navlink' to='/technology'>
             TECHNOLOGY
-          </Link>
+          </NavLink>
         </li>
         <li className='nav-item'>
-          <Link className='navlink' to='/sport'>
+          <NavLink className='navlink' to='/sport'>
             SPORT
-          </Link>
+          </NavLink>
         </li>
         <li className='nav-item'>
-          <Link className='navlink' to='/entertainment'>
+          <NavLink className='navlink' to='/entertainment'>
             ENTERTAINMENT
-          </Link>
+          </NavLink>
         </li>
         <li className='nav-item'>
-          <Link className='navlink' to='/politics'>
+          <NavLink className='navlink' to='/politics'>
             POLITICS
-          </Link>
+          </NavLink>
         </li>
       </ul>
       
@@ -50,14 +58,19 @@ const Navbar = () => {
         </button>
         
         <div className='login-dropdown-content'>
-          <Link className='login' to='/login'>
-            Login
-          </Link>
+          {isAuthenticated ? (<Logout />) : (
+            <>
+            <Link className='login' to='/login'>
+              Login
+            </Link>
+            <p>Don't have an account?</p>
+            <Link className='signup' to='/signup'>
+              Join iBlog now!
+            </Link>
+            </>
+          )}
+          
 
-          <p>Don't have an account?</p>
-          <Link className='signup' to='/signup'>
-            Join iBlog now!
-          </Link>
         </div>
       </div>
     </nav>

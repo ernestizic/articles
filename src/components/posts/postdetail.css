@@ -1,0 +1,60 @@
+.post-detail-head {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/blog-detail-01.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+.post-detail-head h2 {
+  color: #fff;
+}
+.post-detail-head h3 {
+  color: #fff;
+  text-align: center;
+  padding: 70px 100px;
+  font-size: 40px;
+}
+.post-detail {
+  margin: -60px 150px 150px 150px;
+  border-top: 4px solid #ec2dad;
+  padding: 60px;
+  line-height: 40px;
+  background: #f0f0f0;
+}
+.postdetail {
+  padding-bottom: 150px;
+}
+.post-detail .go-back {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background: #787878;
+  border: none;
+}
+
+.post-detail .go-back:hover {
+  background: #ad6094;
+  color: #fff;
+}
+.post-detail img {
+  width: 100%;
+  height: 400px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .post-detail-head h3 {
+    padding: 70px 10px;
+    font-size: 30px;
+  }
+  .post-detail {
+    margin: -60px 10px 10px 10px;
+    border-top: 4px solid #ec2dad;
+    padding: 20px;
+    line-height: 40px;
+    background: #f0f0f0;
+  }
+  .post-detail img {
+    width: 100%;
+    height: 200px;
+  }
+}

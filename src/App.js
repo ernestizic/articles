@@ -13,40 +13,52 @@ import ArticleAddPage from "./components/admin/pages/ArticleAddPage";
 import EditArticlePage from "./components/admin/pages/EditArticlePage";
 import NotFound from "./components/pages/NotFound";
 
-import Footer from './components/layout/Footer';
+// import Footer from './components/layout/Footer';
 import PostDetail from './components/posts/PostDetail';
-import Just from "./components/pages/Just";
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
+import { useEffect } from "react";
+import { useDispatch } from 'react-redux'
+import { loadUser } from "./redux/slices/users";
+import PrivateRoutes from "./PrivateRoutes";
 
 const App = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadUser())
+  }, [dispatch])
+
   return (
     <BrowserRouter>
       <div className='App'>
         <div className='content-wrap'>
           <Switch>
             {/* General routes */}
-            <Route exact path='/' component={Home} />
-            <Route path='/technology' component={TechnologyPage} />
+            <Route exact path='/'> <Home /> </Route>
+            <Route path='/technology'> <TechnologyPage /> </Route>
             <Route path='/sport' component={SportPage} />
-            <Route path='/entertainment' component={EntertainmentPage} />
-            <Route path='/politics' component={PoliticsPage} /> 
-            <Route path='/about' component={About} />
-            <Route path="/:post_id" component={ PostDetail } />
-            <Route path='/just' component={Just}/>
+            <Route path='/entertainment'> <EntertainmentPage /> </Route>
+            <Route path='/politics'> <PoliticsPage /> </Route> 
+            <Route path='/about'> <About /> </Route>
+            
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
 
             {/* Admin routes */}
-            <Route exact path='/admin'>
-              <Overview />
-            </Route>
-            <Route path='/admins/articles' component={ArticlesPage} />
-            <Route path='/admins/add-article' component={ArticleAddPage} />
-            <Route path='/admins/edit-article/:post_id' component={EditArticlePage} />
-            <Route path='/admins/widget' component={WidgetPage} />
-            <Route path='*'>
-              <NotFound />
-            </Route>
+            <PrivateRoutes path='/admin' component={Overview} />
+            <PrivateRoutes path='/admins/articles' component={ArticlesPage} />
+            <PrivateRoutes path='/admins/add-article' component={ArticleAddPage} />
+            <PrivateRoutes path='/admins/widget' component={WidgetPage} />
+
+            {/* Details page */}
+            <PrivateRoutes path='/admins/edit-article/:post_id'> <EditArticlePage /> </PrivateRoutes>
+            <Route path="/:post_id"> <PostDetail /> </Route>
+            <Route path='*' exact component={NotFound} />
           </Switch>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </BrowserRouter>
   );

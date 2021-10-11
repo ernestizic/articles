@@ -8,13 +8,16 @@ import Todo from './todo/Todo';
 import RecentActivities from './RecentActivities';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchArticles } from '../../redux/slices/articles';
+import { fetchAllUsers } from '../../redux/slices/users';
 
 const Overview = () => {
     const {posts} = useSelector(state => state.articles);
+    const {totalUsers} = useSelector(state => state.users);
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(fetchArticles())
+        dispatch(fetchAllUsers())
     }, [dispatch])
     return (
         <Dashboard>
@@ -25,7 +28,7 @@ const Overview = () => {
                     <FaUsers className='icon'/>
                     <div className='u-card'>
                         <p>Users</p>
-                        <p><b>1,234</b></p>
+                        <p><b>{totalUsers.length}</b></p>
                     </div>
                 </div>
                 <div className='card' id='art-card'>

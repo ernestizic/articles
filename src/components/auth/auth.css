@@ -1,0 +1,222 @@
+.welcome header {
+  text-align: center;
+  background: inherit;
+  margin-top: 90px;
+}
+.auth .welcome ul {
+  list-style-type: circle;
+  padding-left: 80px;
+  font-size: 14px;
+}
+.auth .welcome li {
+  padding-bottom: 6px;
+}
+.auth .logo {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.auth a {
+  color: #000;
+}
+
+.auth {
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/blog-detail-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  padding: 50px;
+}
+
+.auth .welcome {
+  background-color: #9696f0;
+  width: 40%;
+  opacity: 0.4;
+  color: #000;
+}
+
+.auth .form-div {
+  background-color: #fff;
+  color: black;
+  width: 60%;
+  padding: 30px;
+}
+.form-div h3 {
+  padding-bottom: 30px;
+}
+.sign-up-form input {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-bottom: 1px solid grey;
+  background: inherit;
+  margin-bottom: 12px;
+  border-radius: 0;
+}
+.sign-up-form input[type="text"] {
+  margin-top: 0;
+}
+.sign-up-form input:focus {
+  outline: none;
+  background: inherit;
+  border-bottom: 1px solid #000;
+}
+
+.sign-up-form .submit-btn {
+  background: #adade9;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 15px;
+}
+
+.sign-up-form .submit-btn:hover {
+  background: #8484cf;
+}
+
+.eye {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
+/* Login form */
+.login-form {
+  background: #fff;
+  color: #000;
+  margin: 0 auto;
+  width: 40%;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+.login-form h2 {
+  font-size: 30px;
+  text-align: center;
+  padding: 30px;
+}
+.login-form input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid grey;
+  margin-bottom: 12px;
+  padding: 9px;
+  background: inherit;
+  border-radius: 0;
+}
+.login-form input:focus {
+  outline: none;
+  background: inherit;
+  border-bottom: 1px solid #000;
+}
+.login-form input[type="text"] {
+  margin-top: 0;
+}
+
+.login-form .submit-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 18px;
+  border: none;
+  background: #adade9;
+  font-weight: bold;
+  color: rgb(68, 63, 63);
+}
+.login-form .submit-btn:hover {
+  background: #8484cf;
+}
+.login-form .forgot-password {
+  font-size: 12px;
+  float: right;
+}
+.login-form .forgot-password:hover {
+  color: #ec2dad;
+}
+
+.login-form .social-sign {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.social-logo {
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+.fb {
+  color: #3b5998;
+  margin-right: 7px;
+}
+.twitter {
+  color: #55acee;
+  font-size: 28px;
+  margin-right: 7px;
+}
+.google {
+  color: #ff6347;
+  font-size: 28px;
+}
+
+.login-form .sign-up-link {
+  padding: 18px 0;
+}
+.login-form .sign-up-link a {
+  font-weight: bold;
+}
+
+.auth .errMsg {
+  font-size: 12px;
+  color: red;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.log-out a {
+  background-color: #ec2dad;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.log-out a:hover {
+  background-color: #f36fc7;
+}
+.log-out .visit-admin{
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  display: block;
+}
+.log-out .visit-admin:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .login-form {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+  }
+
+  /* Signup form */
+  .auth {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: fit-content;
+  }
+  .auth .welcome {
+    background-color: #9696f0;
+    width: 100%;
+    opacity: 0.4;
+    color: #000;
+  }
+
+  .auth .form-div {
+    background-color: #fff;
+    color: black;
+    width: 100%;
+    padding: 30px;
+  }
+}

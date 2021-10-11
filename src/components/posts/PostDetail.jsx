@@ -1,70 +1,42 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
-import { getOneArticle } from '../../redux/slices/articles';
-
-
-/*
-class PostDetail extends Component {
-    state = {
-        post: null
-    }
-
-    componentDidMount() {
-        let id = this.props.match.params.post_id;
-        axios.get ('https://jsonplaceholder.typicode.com/posts/' + id)
-            .then(res =>{
-                this.setState({
-                    post: res.data
-                })
-                //console.log(res)
-            })
-    }
-
-    render() { 
-
-        const post  = this.state.post ? (
-            <div className="container post">
-                <h4 style={{ paddingTop: "20px", paddingBottom: "10px" }}>{this.state.post.title}</h4>
-                <p>{this.state.post.body}</p>
-            </div>
-        ) : (
-            <div className="container"> Loading post... </div>
-        )
-
-        return ( 
-            <div className="container">
-                { post }
-            </div>
-         );
-    }
-}
- 
-export default PostDetail;
-*/
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams, useHistory } from "react-router";
+import { getOneArticle } from "../../redux/slices/articles";
+import Footer from "../layout/Footer";
+import { TiArrowBack } from 'react-icons/ti'
+import "./postdetail.css";
 
 const PostDetail = () => {
-    const {post_id} = useParams();
-    const dispatch = useDispatch()
-    const {post} = useSelector(state => state.articles)
+  const { post_id } = useParams();
+  const dispatch = useDispatch();
+  const { post } = useSelector((state) => state.articles);
 
-    useEffect(()=> {
-        dispatch(getOneArticle(post_id))
-    }, [dispatch, post_id])
+  const history = useHistory();
 
-    const postDetail = post ? (
-        <div className="container post">
-            <h4 style={{ paddingTop: "20px", paddingBottom: "10px" }}>{post.title}</h4>
-            <p>{post.body}</p>
-        </div>
-    ) : (
-        <div className="container"> Loading post... </div>
-    )
-    return ( 
-        <div className="container">
-            {postDetail}
-        </div>
-     );
-}
- 
+  useEffect(() => {
+    dispatch(getOneArticle(post_id));
+  }, [dispatch, post_id]);
+
+  const postDetail = post ? (
+    <>
+      <div className='post-detail-head'>
+        <h2>iBlog</h2>
+        <h3>{post.title}</h3>
+      </div>
+      <div className='post-detail'>
+        <button className='go-back' onClick={() => history.goBack()}>
+          <TiArrowBack /> Go back
+        </button>
+        <img src={`http://localhost:5000/${post.image}`} alt='post-img' />
+        <h4>{post.title}</h4>
+        <p>{post.body}</p>
+      </div>
+      <Footer />
+    </>
+  ) : (
+    <div className='container'> Loading post... </div>
+  );
+  return <div className='postdetail'>{postDetail}</div>;
+};
+
 export default PostDetail;

@@ -22,6 +22,15 @@
   padding: 10px 200px;
   overflow: hidden;
 }
+.navbar .active {
+  background-color: #ec2dad;
+  border-radius: 15px;
+  padding: 5px 12px;
+  color: #fff;
+}
+.navbar .active:hover {
+  background-color: #ec2dad;
+}
 .nav-item {
   display: inline;
   padding: 20px 40px;

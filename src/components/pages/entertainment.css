@@ -1,0 +1,49 @@
+.ent-page {
+  padding-bottom: 150px;
+}
+.ent-page header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/souvik-banerjee-I4MTFEPvpdk-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+}
+.ent-page header h1 {
+  text-align: center;
+  padding-top: 160px;
+  font-size: 80px;
+  color: #dc8fc2;
+}
+
+/* Politics page style */
+.pol-page {
+  padding-bottom: 150px;
+}
+.pol-page header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/News-Paper-Review-3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+}
+.pol-page header h1 {
+  text-align: center;
+  padding-top: 160px;
+  font-size: 80px;
+  color: #2b2be9;
+}
+.pol-page a, .ent-page a {
+  color: #3c3c3c;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+    .ent-page header h1 {
+        font-size: 45px;
+        padding-top: 200px;
+      }
+    .pol-page header h1 {
+        padding-top: 200px;
+        font-size: 45px;
+      }
+}

@@ -29,16 +29,9 @@ a{
 
 .loading{
   text-align: center;
+  margin: 40px auto;
 }
 
-.footer {
-  background-color: #134b72;
-  color: #fff;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
 button{
   transition: 0.2s ease-in-out;
 }

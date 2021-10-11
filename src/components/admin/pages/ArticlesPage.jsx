@@ -79,8 +79,8 @@ const ArticlesPage = () => {
                 <div className='article-page-body'>
                     <ArticleList currentPosts={currentPosts} />
                 </div>
-
-                <Pagination postsPerPage={postsPerPage} totalPosts={postCopy.length} paginate={paginate} />
+                {postCopy.length > postsPerPage && <Pagination postsPerPage={postsPerPage} totalPosts={postCopy.length} paginate={paginate} />}
+                
             </div>
         </Dashboard>
     )

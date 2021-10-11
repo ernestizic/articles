@@ -18,18 +18,30 @@ export const getOneArticle = createAsyncThunk("articles/getOneArticle", async (p
 );
 
 // delete an article
-export const deleteArticle = createAsyncThunk('articles/deleteArticle', async (id)=> {
-    const res = await axios.delete(`http://localhost:5000/api/v1/article/${id}`)
+export const deleteArticle = createAsyncThunk('articles/deleteArticle', async (id, {getState})=> {
+  const token = getState().users.token;
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  if(token) {
+    config.headers['authorization'] = `Bearer ${token}`
+  }
+    const res = await axios.delete(`http://localhost:5000/api/v1/article/${id}`,config )
     return res.data.data;
 })
 
 // add a new article
-export const addNewArticle = createAsyncThunk('articles/addNewArticle', async (formData)=> {
-  console.log(formData)
+export const addNewArticle = createAsyncThunk('articles/addNewArticle', async (formData, {getState})=> {
+  const token = getState().users.token;
   const config = {
     headers: {
       'Content-Type': 'application/json'
     }
+  }
+  if(token) {
+    config.headers['authorization'] = `Bearer ${token}`
   }
     try {
       const res = await axios.post("http://localhost:5000/api/v1/articles", formData, config)
@@ -40,27 +52,21 @@ export const addNewArticle = createAsyncThunk('articles/addNewArticle', async (f
 })
 
 // edit an article
-export const editArticle = createAsyncThunk('articles/editArticle', async (post_id, formData) => {
+export const editArticle = createAsyncThunk('articles/editArticle', async (post_id, formData, {getState}) => {
+  const token = getState().users.token;
   const config = {
     headers: {
       'Content-Type': 'application/json'
     }
   }
+  if(token) {
+    config.headers['authorization'] = `Bearer ${token}`
+  }
   const res = await axios.put(`http://localhost:5000/api/v1/article/${post_id}`, formData, {config})
   return res.data;
 })
 
-// export const deleteArticle = () => {
-//     return async (id, dispatch, getState) => {
-//         //dispatch(requestStarted())
-//         try {
-//             const res = await axios.delete(`http://localhost:5000/api/v1/article/${id}`)
-//             dispatch(deleteSuccess(res.data.articles))
-//         } catch (err) {
-//             dispatch(deleteFailure(err))
-//         }
-//     }
-// }
+
 
 const articleSlice = createSlice({
   name: "articles",
@@ -146,12 +152,3 @@ const articleSlice = createSlice({
 export const { filterArticles, adminSearch } = articleSlice.actions;
 
 export default articleSlice.reducer;
-
-
-// {
-//   id: action.payload._id,
-//   title: action.payload.title,
-//   content: action.payload.body,
-//   category: action.payload.category,
-//   file: action.payload.image,
-// }

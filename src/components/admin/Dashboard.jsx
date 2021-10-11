@@ -1,21 +1,24 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import Avatar from '../../images/Arh-avatar.jpg'
 import { AiFillDashboard } from 'react-icons/ai';
 import { RiPagesLine } from 'react-icons/ri';
 import { MdWidgets } from 'react-icons/md';
-import propTypes from "prop-types";
+import {  useSelector } from 'react-redux'
 import './Dashboard.css'
 
 const Dashboard = ({children}) => {
+    const {fullName} = useSelector(state => state.users.user)
     return (
         <div className='dashboard'>
             <div className='admin-navbar'>
                 <div className='logo-div'>
-                    <h3>iBlog</h3>
+                    <Link className='navbar-brand' to='/'>
+                        <span className='lg'>i</span>Blog
+                    </Link>
                 </div>
                 <ul>
-                    <li className='name'>Admin</li>
+                    <li className='name'>Welcome, {fullName}</li>
                     <li><img src={Avatar} alt="Avatar" className="avatar" /></li>
                 </ul>
             </div>
@@ -34,8 +37,5 @@ const Dashboard = ({children}) => {
     )
 }
 
-Dashboard.propTypes = {
-    children: propTypes.arrayOf(propTypes.element).isRequired,
-};
 
 export default Dashboard
