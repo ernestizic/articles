@@ -99,17 +99,20 @@
 
 /** Small screen navbar */
 .small-screen-nav {
+  z-index: 1;
   color: gray;
   height: 0%;
   width: 100%;
-  margin-top: 10px;
+  margin: 0;
   padding-left: 13px;
   position: fixed;
   top: 0;
-  left: 10;
   background-color: #000;
   overflow-x: hidden;
   transition: 0.5s;
+}
+.small-screen-nav ul {
+  list-style-type: none;
 }
 .small-screen-nav .navbar-nav {
   margin-top: 100px;

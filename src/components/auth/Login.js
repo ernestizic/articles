@@ -55,7 +55,7 @@ const Login = () => {
 
     }, [history, isAuthenticated])
     return (
-        <div className='auth'>
+        <div className='login-auth'>
             <form onSubmit={validateForm} className='login-form'>
                 <h2>Login</h2>
 

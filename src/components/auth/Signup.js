@@ -73,13 +73,15 @@ const Signup = () => {
                 <header>
                     <div className='logo'><span className='lg'>i</span>Blog</div>
                     <h1>Welcome</h1>
-                    <p>Join us and have more fun and experience</p>
+                    <span className='remove'><p>Join us and have more fun and experience</p></span>
                 </header>
+                <span className='remove'>
                 <ul>
                    <li>Like posts you like</li> 
                    <li>Comment on posts</li> 
                    <li>Interract with posts</li> 
                 </ul>
+                </span>
             </div>
             
             <div className='form-div'>
