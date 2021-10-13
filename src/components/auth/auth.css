@@ -181,6 +181,12 @@
   margin-top: -10px;
   margin-bottom: 10px;
 }
+.login-auth .errMsg {
+  font-size: 12px;
+  color: red;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
 .log-out a {
   background-color: #ec2dad;
   color: #fff;
