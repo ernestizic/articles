@@ -5,7 +5,7 @@ import axios from "axios";
 export const fetchAllUsers =()=> async(dispatch, getState) => {
   dispatch(fetchLoading());
   try {
-    const res = await axios.get("http://localhost:5000/api/users")
+    const res = await axios.get("https://hidden-falls-93050.herokuapp.com/api/users")
     dispatch(fetchSuccess(res.data))
   } catch (err) {
     dispatch(fetchFailure())
@@ -26,7 +26,7 @@ export const loadUser = () => async(dispatch, getState) => {
   }
   dispatch(userLoading());
   try {
-    const res = await axios.get("http://localhost:5000/api/user", config);
+    const res = await axios.get("https://hidden-falls-93050.herokuapp.com/api/user", config);
     dispatch(userReceived(res.data));
   } catch (err) {
     dispatch(userLoadFailed());
@@ -47,7 +47,7 @@ export const registerUser = (formData) => async (dispatch, getState) => {
   }
   dispatch(registerLoading());
   try {
-    const res = await axios.post("http://localhost:5000/api/users", formData, config);
+    const res = await axios.post("https://hidden-falls-93050.herokuapp.com/api/users", formData, config);
     dispatch(registerSuccess(res.data));
   } catch (err) {
     dispatch(registerFailure())
@@ -72,7 +72,7 @@ export const login = (formData) => async (dispatch, getState) => {
   }
   dispatch(loginLoading());
   try {
-    const res = await axios.post("http://localhost:5000/api/users/auth", formData, config);
+    const res = await axios.post("https://hidden-falls-93050.herokuapp.com/api/users/auth", formData, config);
     dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFailure())

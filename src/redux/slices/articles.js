@@ -5,14 +5,14 @@ import axios from "axios";
 export const fetchArticles = createAsyncThunk(
   "articles/fetchArticles",
   async () => {
-    const res = await axios.get("http://localhost:5000/api/v1/articles");
+    const res = await axios.get("https://hidden-falls-93050.herokuapp.com/api/v1/articles");
     return res.data.articles;
   }
 );
 
 // get one partcular article
 export const getOneArticle = createAsyncThunk("articles/getOneArticle", async (post_id) => {
-    const res = await axios.get(`http://localhost:5000/api/v1/article/${post_id}`);
+    const res = await axios.get(`https://hidden-falls-93050.herokuapp.com/api/v1/article/${post_id}`);
     return res.data.article;
   }
 );
@@ -28,7 +28,7 @@ export const deleteArticle = createAsyncThunk('articles/deleteArticle', async (i
   if(token) {
     config.headers['authorization'] = `Bearer ${token}`
   }
-    const res = await axios.delete(`http://localhost:5000/api/v1/article/${id}`,config )
+    const res = await axios.delete(`https://hidden-falls-93050.herokuapp.com/api/v1/article/${id}`,config )
     return res.data.data;
 })
 
@@ -44,7 +44,7 @@ export const addNewArticle = createAsyncThunk('articles/addNewArticle', async (f
     config.headers['authorization'] = `Bearer ${token}`
   }
     try {
-      const res = await axios.post("http://localhost:5000/api/v1/articles", formData, config)
+      const res = await axios.post("https://hidden-falls-93050.herokuapp.com/api/v1/articles", formData, config)
       return res.data.data;
     } catch (err) {
       console.log(err)
@@ -62,7 +62,7 @@ export const editArticle = createAsyncThunk('articles/editArticle', async (post_
   if(token) {
     config.headers['authorization'] = `Bearer ${token}`
   }
-  const res = await axios.put(`http://localhost:5000/api/v1/article/${post_id}`, formData, {config})
+  const res = await axios.put(`https://hidden-falls-93050.herokuapp.com/api/v1/article/${post_id}`, formData, {config})
   return res.data;
 })
 

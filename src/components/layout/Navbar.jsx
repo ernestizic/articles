@@ -74,9 +74,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className='small-screen-admin'>
-        <Link to='/admin'> <FaUserAlt /> </Link>
-      </div>
+      {isAuthenticated && 
+        <div className='small-screen-admin'>
+          <Link to='/admin'> <FaUserAlt /> </Link>
+        </div>
+      }
     </nav>
 
     <div className='small-screen-nav'>

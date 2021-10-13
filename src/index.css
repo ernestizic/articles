@@ -31,6 +31,10 @@ a{
   text-align: center;
   margin: 40px auto;
 }
+.empty {
+  text-align: center;
+  margin: 50px;
+}
 
 button{
   transition: 0.2s ease-in-out;

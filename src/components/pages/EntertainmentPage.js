@@ -13,7 +13,7 @@ export const EntertainmentPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const result = await axios.get(
-        "http://localhost:5000/api/v1/articles/category/entertainment"
+        "https://hidden-falls-93050.herokuapp.com/api/v1/articles/category/entertainment"
       );
       setEntPosts(result.data.articles);
       setIsLoading(false);
@@ -28,14 +28,17 @@ export const EntertainmentPage = () => {
           <h1>Entertainment</h1>
         </header>
         <div className='tech-page-main'>
+          
           {isLoading ? (
             <div className='loading'><Loader /> </div>
           ) : (
+            <>
+            {entPosts < 1 && <div className='empty'>No post found</div>}
             <div className='article-grid'>
               {[...entPosts].reverse().map((post) => (
                 <div className='article-col' key={post._id}>
                   <img
-                    src={`http://localhost:5000/${post.image}`}
+                    src={`https://hidden-falls-93050.herokuapp.com/${post.image}`}
                     alt='post-img'
                   />
                   <div className='art-det'>
@@ -49,6 +52,7 @@ export const EntertainmentPage = () => {
                 </div>
               ))}
             </div>
+            </>
           )}
         </div>
       </div>

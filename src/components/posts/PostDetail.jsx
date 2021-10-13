@@ -14,6 +14,7 @@ const PostDetail = () => {
   const history = useHistory();
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     dispatch(getOneArticle(post_id));
   }, [dispatch, post_id]);
 
@@ -27,7 +28,7 @@ const PostDetail = () => {
         <button className='go-back' onClick={() => history.goBack()}>
           <TiArrowBack /> Go back
         </button>
-        <img src={`http://localhost:5000/${post.image}`} alt='post-img' />
+        <img src={`https://hidden-falls-93050.herokuapp.com/${post.image}`} alt='post-img' />
         <h4>{post.title}</h4>
         <p>{post.body}</p>
       </div>

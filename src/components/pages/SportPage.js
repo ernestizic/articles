@@ -13,7 +13,7 @@ const SportPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const result = await axios.get(
-        "http://localhost:5000/api/v1/articles/category/sports"
+        "https://hidden-falls-93050.herokuapp.com/api/v1/articles/category/sports"
       );
       setSportPosts(result.data.articles);
       setIsLoading(false);
@@ -35,11 +35,13 @@ const SportPage = () => {
           {isLoading ? (
             <div className='loading'> <Loader /> </div>
           ) : (
+            <>
+            {sportPosts < 1 && <div className='empty'>No post found</div>}
           <div className='article-grid'>
               {[...sportPosts].reverse().map((post) => (
                 <div className='article-col' key={post._id}>
                   <img
-                    src={`http://localhost:5000/${post.image}`}
+                    src={`https://hidden-falls-93050.herokuapp.com/${post.image}`}
                     alt='post-img'
                   />
                   <div className='overlay'>
@@ -48,6 +50,7 @@ const SportPage = () => {
                 </div>
               ))}
           </div>
+          </>
 
           )}
 

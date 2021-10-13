@@ -13,7 +13,7 @@ const TechnologyPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const result = await axios.get(
-        "http://localhost:5000/api/v1/articles/category/technology"
+        "https://hidden-falls-93050.herokuapp.com/api/v1/articles/category/technology"
       );
       setTechPosts(result.data.articles);
       setIsLoading(false);
@@ -31,11 +31,13 @@ const TechnologyPage = () => {
           {isLoading ? (
             <div className='loading'><Loader /></div>
           ) : (
+            <>
+            {techPosts < 1 && <div className='empty'>No post found</div>}
             <div className='article-grid'>
               {[...techPosts].reverse().map((post) => (
                 <div className='article-col' key={post._id}>
                   <img
-                    src={`http://localhost:5000/${post.image}`}
+                    src={`https://hidden-falls-93050.herokuapp.com/${post.image}`}
                     alt='post-img'
                   />
                   <div className='art-det'>
@@ -49,6 +51,7 @@ const TechnologyPage = () => {
                 </div>
               ))}
             </div>
+            </>
           )}
         </div>
       </div>
