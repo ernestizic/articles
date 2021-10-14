@@ -28,7 +28,7 @@ const PostDetail = () => {
         <button className='go-back' onClick={() => history.goBack()}>
           <TiArrowBack /> Go back
         </button>
-        <img src={`https://hidden-falls-93050.herokuapp.com/${post.image}`} alt='post-img' />
+        <img src={post.image} alt='post-img' />
         <h4>{post.title}</h4>
         <p>{post.body}</p>
       </div>

@@ -41,7 +41,7 @@ const SportPage = () => {
               {[...sportPosts].reverse().map((post) => (
                 <div className='article-col' key={post._id}>
                   <img
-                    src={`https://hidden-falls-93050.herokuapp.com/${post.image}`}
+                    src={post.image}
                     alt='post-img'
                   />
                   <div className='overlay'>

@@ -38,6 +38,7 @@
   display: block;
   width: 100%;
   height: 250px;
+  object-fit: cover;
 }
 .tech-page a {
   color: #3c3c3c;

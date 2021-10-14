@@ -15,6 +15,7 @@ const TechnologyPage = () => {
       const result = await axios.get(
         "https://hidden-falls-93050.herokuapp.com/api/v1/articles/category/technology"
       );
+      console.log(result.data)
       setTechPosts(result.data.articles);
       setIsLoading(false);
     };
@@ -37,7 +38,7 @@ const TechnologyPage = () => {
               {[...techPosts].reverse().map((post) => (
                 <div className='article-col' key={post._id}>
                   <img
-                    src={`https://hidden-falls-93050.herokuapp.com/${post.image}`}
+                    src={post.image}
                     alt='post-img'
                   />
                   <div className='art-det'>
