@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import Navbar from '../layout/Navbar'
@@ -10,11 +11,12 @@ const SearchPage = () => {
     const {searchedPosts, loading} = useSelector(state => state.articles)
 
     const searchPage = loading ? (
-        <Loader />
+        <div className='loading'> <Loader /> </div>
     ) : (
         <div className='search-page-content'>
         {searchedPosts.length? (
             searchedPosts.map(post => (
+                <Link to={`/${post._id}`}>
                 <div className='search-page-item' key={post._id}>
                     <div className='search-page-img'><img src={post.image} alt='post-img'/></div>
                     <div className='search-page-others'>
@@ -23,6 +25,7 @@ const SearchPage = () => {
                         <p>{post.body}</p>
                     </div>
                 </div>
+                </Link>
             ))
         ) : (
             <div className='empty'>No post found</div>
