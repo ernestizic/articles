@@ -15,7 +15,6 @@ const TechnologyPage = () => {
       const result = await axios.get(
         "https://hidden-falls-93050.herokuapp.com/api/v1/articles/category/technology"
       );
-      console.log(result.data)
       setTechPosts(result.data.articles);
       setIsLoading(false);
     };

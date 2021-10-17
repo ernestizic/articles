@@ -67,6 +67,18 @@ export const editArticle = createAsyncThunk('articles/editArticle', async (post_
 })
 
 
+// Search for articles
+export const search =(keyword)=> async(dispatch, getState)=> {
+  dispatch(searchLoading())
+  try {
+    const res = await axios.get(`https://hidden-falls-93050.herokuapp.com/api/v1/search/articles/${keyword}`)
+    dispatch(searchSuccess(res.data))
+  } catch (err) {
+    dispatch(searchFailure())
+  }
+}
+
+
 
 const articleSlice = createSlice({
   name: "articles",
@@ -76,6 +88,7 @@ const articleSlice = createSlice({
     loading: false,
     post:[],
     error: false,
+    searchedPosts: [],
   },
   reducers: {
     filterArticles: (state, action) => {
@@ -85,6 +98,28 @@ const articleSlice = createSlice({
     adminSearch: (state, action) => {
         const search = state.posts.filter(post => post.title.toLowerCase().includes(action.payload.toLowerCase()))
         state.postCopy = search
+    },
+
+    // search extras
+    searchLoading: (state, action) => {
+      return {
+        ...state,
+        loading: true
+      }
+    },
+    searchSuccess: (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        searchedPosts: action.payload.articles,
+      }
+    },
+    searchFailure: (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        searchedPosts: []
+      }
     },
 
   },
@@ -149,6 +184,12 @@ const articleSlice = createSlice({
 });
 
 // Actions generated from slice
-export const { filterArticles, adminSearch } = articleSlice.actions;
+export const { 
+  filterArticles, 
+  adminSearch, 
+  searchLoading, 
+  searchSuccess, 
+  searchFailure 
+} = articleSlice.actions;
 
 export default articleSlice.reducer;

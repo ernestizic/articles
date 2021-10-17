@@ -64,6 +64,4 @@ const ArticleList = ({currentPosts}) => {
   );
 };
 
-// ()=>dispatch(deleteArticle(post._id))
-
 export default ArticleList;

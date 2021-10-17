@@ -2,13 +2,14 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { logout } from '../../redux/slices/users'
 import { FaUserAlt } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import "./navbar.css";
 import Logout from "../auth/Logout";
 import { useSelector, useDispatch } from "react-redux";
 
 
 const Navbar = () => {
-  const {isAuthenticated} = useSelector(state => state.users)
+  const {isAuthenticated, user} = useSelector(state => state.users)
   const dispatch = useDispatch()
 
 
@@ -20,6 +21,11 @@ const Navbar = () => {
   const closeNav = () => {
     const nav = document.querySelector(".small-screen-nav");
     nav.style.height = "0%";
+  };
+
+  const openSearchModal = () => {
+    const search = document.querySelector(".search-modal");
+    search.style.display = "block";
   };
 
   return (
@@ -54,6 +60,9 @@ const Navbar = () => {
         </li>
       </ul>
       
+      <FaSearch className='search-icon' onClick={openSearchModal} />
+      
+      
       <div className='login-dropdown'>
         <button className='dropdown-icon'> 
           <FaUserAlt />
@@ -74,13 +83,14 @@ const Navbar = () => {
         </div>
       </div>
 
-      {isAuthenticated && 
+      {/* {isAuthenticated && 
         <div className='small-screen-admin'>
           <Link to='/admin'> <FaUserAlt /> </Link>
         </div>
-      }
+      } */}
     </nav>
 
+{/* Small screen navigation */}
     <div className='small-screen-nav'>
     <span className='ham' id='ham-close' onClick={closeNav}> &times;</span>
     <Link className='navbar-brand' to='/'>
@@ -118,6 +128,7 @@ const Navbar = () => {
           </>
         )}
       </div>
+      {isAuthenticated && <p style={{textAlign: 'center', paddingTop: '5px'}}> You are logged in as {user.email} </p>}
     </div>
     </>
   );

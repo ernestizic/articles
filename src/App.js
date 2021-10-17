@@ -21,6 +21,8 @@ import { useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import { loadUser } from "./redux/slices/users";
 import PrivateRoutes from "./PrivateRoutes";
+import SearchModal from "./components/layout/SearchModal";
+import SearchPage from "./components/pages/SearchPage";
 
 const App = () => {
 
@@ -33,6 +35,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className='App'>
+        <SearchModal />
         <div className='content-wrap'>
           <Switch>
             {/* General routes */}
@@ -42,6 +45,7 @@ const App = () => {
             <Route path='/entertainment'> <EntertainmentPage /> </Route>
             <Route path='/politics'> <PoliticsPage /> </Route> 
             <Route path='/about'> <About /> </Route>
+            <Route path='/search' component={SearchPage} />
             
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
@@ -57,6 +61,7 @@ const App = () => {
             <Route path="/:post_id"> <PostDetail /> </Route>
             <Route path='*' exact component={NotFound} />
           </Switch>
+
         </div>
         {/* <Footer /> */}
       </div>
