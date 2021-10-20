@@ -28,6 +28,7 @@
   justify-content: space-between;
   height: 220px;
   margin-top: 10px;
+  overflow: hidden;
 }
 .search-page-img {
   width: 30%;

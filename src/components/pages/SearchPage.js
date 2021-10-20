@@ -16,8 +16,8 @@ const SearchPage = () => {
         <div className='search-page-content'>
         {searchedPosts.length? (
             searchedPosts.map(post => (
-                <Link to={`/${post._id}`}>
-                <div className='search-page-item' key={post._id}>
+                <Link to={`/${post._id}`} key={post._id}>
+                <div className='search-page-item' >
                     <div className='search-page-img'><img src={post.image} alt='post-img'/></div>
                     <div className='search-page-others'>
                         <span className='cat'>{post.category.toUpperCase()}</span>
