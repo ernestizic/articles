@@ -28,10 +28,14 @@
   width: 100%;
   margin-top: 80px;
   padding: 20px;
-  font-size: 90px;
+  font-size: 120px;
   background: inherit;
   border: none;
   color: grey;
+}
+
+.search-modal input:focus{
+  outline: none;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 768px) {

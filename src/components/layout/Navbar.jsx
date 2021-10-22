@@ -12,7 +12,7 @@ const Navbar = () => {
   const {isAuthenticated, user} = useSelector(state => state.users)
   const dispatch = useDispatch()
 
-
+  //********* Toggle navbar when on smaller device *********/ 
   const openNav =()=>{
     const nav = document.querySelector(".small-screen-nav");
     nav.style.height = "100%";
@@ -23,9 +23,12 @@ const Navbar = () => {
     nav.style.height = "0%";
   };
 
+
+  /****************** Open modal for search bar ******* */
   const openSearchModal = () => {
     const search = document.querySelector(".search-modal");
     search.style.display = "block";
+    document.querySelector('#search-form').focus();
   };
 
   return (
@@ -67,7 +70,7 @@ const Navbar = () => {
         <button className='dropdown-icon'> 
           <FaUserAlt />
         </button>
-        
+        {/* Determine what to display when authenticated or not */}
         <div className='login-dropdown-content'>
           {isAuthenticated ? (<Logout />) : (
             <>
@@ -82,20 +85,22 @@ const Navbar = () => {
           )}
         </div>
       </div>
-
-      {/* {isAuthenticated && 
+      {/* Display user icon only when user is authenticated on smaller devices */}
+      {isAuthenticated && 
         <div className='small-screen-admin'>
           <Link to='/admin'> <FaUserAlt /> </Link>
         </div>
-      } */}
+      }
     </nav>
 
-{/* Small screen navigation */}
+    {/* Navigation for smaller devies */}
     <div className='small-screen-nav'>
     <span className='ham' id='ham-close' onClick={closeNav}> &times;</span>
+
     <Link className='navbar-brand' to='/'>
       <span className='lg'>i</span>Blog
     </Link>
+
       <ul className='navbar-nav'>
         <h6>CATEGORIES</h6>
         <li className='nav-item-2'>
@@ -111,7 +116,9 @@ const Navbar = () => {
           <Link className='nav-link' to='/politics'>POLITICS</Link>
         </li>
       </ul>
+
       <hr />
+
       <h6 className='more-h'>MORE</h6>
       <div className='more'> 
         <Link to='/about'> ABOUT US </Link>
@@ -119,6 +126,7 @@ const Navbar = () => {
       </div>
 
       <div className='join'>
+        {/* Determine what to display when authenticated or not */}
         {isAuthenticated ? (
           <Link to="#" onClick={()=>dispatch(logout())} className='sm-sc-logout'>LOG OUT</Link>
         ) : (
@@ -128,6 +136,7 @@ const Navbar = () => {
           </>
         )}
       </div>
+      {/* Display text only when user is authenticated on smaller devices */}
       {isAuthenticated && <p style={{textAlign: 'center', paddingTop: '5px'}}> You are logged in as {user.email} </p>}
     </div>
     </>

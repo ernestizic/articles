@@ -34,6 +34,7 @@ const SearchModal = () => {
 
             <form onSubmit={handleSubmit}>
                 <input 
+                    id='search-form'
                     type='search' 
                     placeholder='Search...' 
                     value={keyword} 
