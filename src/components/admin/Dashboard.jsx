@@ -29,6 +29,13 @@ const Dashboard = ({children}) => {
                     <li><NavLink to='/admins/widget'> <span className='icon'><MdWidgets /></span> <span className='i-link'>Widget</span></NavLink></li>
                 </ul>
             </div>
+            <div className='sidenav-min'>
+                <ul>
+                    <li><NavLink to='/admin'> <span className='icon'><AiFillDashboard/></span></NavLink></li>
+                    <li><NavLink to='/admins/articles'> <span className='icon'><RiPagesLine /></span></NavLink></li>
+                    <li><NavLink to='/admins/widget'> <span className='icon'><MdWidgets /></span></NavLink></li>
+                </ul>
+            </div>
 
             <div className='main'>
                 {children}

@@ -1,6 +1,24 @@
 .dashboard {
   color: #3c3c3c;
 }
+.sidenav-min{
+  display: none;
+  height: 100%;
+  width: 50px;
+  position: fixed;
+  z-index: 1;
+  top: 62px;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  padding-top: 40px;
+}
+.sidenav-min li a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  color: #818181;
+  display: block;
+}
 .sidenav {
   height: 100%;
   width: 180px;
@@ -78,4 +96,16 @@ li a:hover {
   .main {
     padding: 5px;
   }
+  .sidenav {
+    display: none;
+  }
+  .main {
+    margin-left: 40px;
+    padding: 16px;
+    margin-top: 80px;
+  }
+  .sidenav-min{
+    display: block;
+  }
+
 }
