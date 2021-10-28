@@ -15,6 +15,7 @@ const ArticleList = ({currentPosts}) => {
   const { postCopy, loading, error } = useSelector((state) => state.articles);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     dispatch(fetchArticles());
   }, [dispatch]);
 

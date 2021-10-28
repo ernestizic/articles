@@ -10,12 +10,10 @@ const EditArticlePage = () => {
     const [content, setContent] = useState('')
     const [category, setCategory] = useState('')
     // const [selectedFile, setSelectedFile] = useState(undefined)
-    const [postCreationStatus, setPostCreationStatus] = useState(undefined)
-    // const [errorMsg, setErrorMsg] = useState(null)
-
     const title = useRef('') 
 
-    const {post} = useSelector(state => state.articles)
+
+    const {post, successMsg} = useSelector(state => state.articles)
     const dispatch = useDispatch();
     const {post_id} = useParams();
     const history = useHistory();
@@ -80,18 +78,12 @@ const EditArticlePage = () => {
     const handleSubmit =(e)=> {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append("title", title.current.value);
-        formData.append("body", content);
-        formData.append("category", category);
-
+        const formData = {
+            title: title.current.value,
+            body: content,
+            category: category
+        }
         dispatch(editArticle(post_id, formData))
-        
-        setPostCreationStatus({type: 'success'})
-        setTimeout(() => {
-            setPostCreationStatus({type: 'success'})
-            setPostCreationStatus(undefined)
-        }, 2000);
     }
 
     return (
@@ -150,11 +142,12 @@ const EditArticlePage = () => {
 
                     <button className='btn' type='submit'>Submit</button>
 
-                    {postCreationStatus?.type === 'success' && (
+                    {
+                        successMsg &&
                         <div className='create-post-success-alert'>
-                            Post Edited successfully
+                            {successMsg}
                         </div>
-                    )}
+                    }
 
                 </form>
                 ) : (

@@ -51,20 +51,30 @@ export const addNewArticle = createAsyncThunk('articles/addNewArticle', async (f
     }
 })
 
-// edit an article
-export const editArticle = createAsyncThunk('articles/editArticle', async (post_id, formData, {getState}) => {
+
+// Edit an article
+export const editArticle =(post_id, formData)=> async(dispatch, getState)=>{
   const token = getState().users.token;
   const config = {
     headers: {
-      'Content-Type': 'application/json'
-    }
+      "Content-Type": "application/json",
+    },
+  };
+  if (token) {
+    config.headers["authorization"] = `Bearer ${token}`;
   }
-  if(token) {
-    config.headers['authorization'] = `Bearer ${token}`
+  dispatch(editArticleLoading())
+  try {
+    const res = await axios.put(`https://hidden-falls-93050.herokuapp.com/api/v1/article/${post_id}`, formData, config)
+    dispatch(editArticleSuccess(res.data))
+    dispatch(successAlert())
+    setTimeout(()=> {
+      dispatch(clearAlert())
+    }, 3000)
+  } catch (err) {
+    dispatch(editArticleFailure())
   }
-  const res = await axios.put(`https://hidden-falls-93050.herokuapp.com/api/v1/article/${post_id}`, formData, {config})
-  return res.data;
-})
+} 
 
 
 // Search for articles
@@ -89,6 +99,8 @@ const articleSlice = createSlice({
     post:[],
     error: false,
     searchedPosts: [],
+    successMsg: '',
+    errMsg: null,
   },
   reducers: {
     filterArticles: (state, action) => {
@@ -121,6 +133,40 @@ const articleSlice = createSlice({
         searchedPosts: []
       }
     },
+
+    // edit article extras
+    editArticleLoading: (state, action) => {
+      return {
+        ...state,
+        loading: true
+      }
+    },
+    editArticleSuccess: (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        post: action.payload.data
+
+      }
+    },
+    editArticleFailure: (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        post: state.post
+      }
+    },
+
+
+    // success alert
+    successAlert: (state, action)=> {
+      state.successMsg = 'Article Updated'
+    },
+
+    // clear alert message
+    clearAlert: (state, action)=> {
+      state.successMsg = ''
+    }
 
   },
 
@@ -174,11 +220,6 @@ const articleSlice = createSlice({
       state.loading = false;
       state.error = true;
     },
-
-    // extraReducers  for editArticle
-    [editArticle.fulfilled]: (state, action) => {
-      // console.log(action.payload)
-    },
     
   },
 });
@@ -189,7 +230,12 @@ export const {
   adminSearch, 
   searchLoading, 
   searchSuccess, 
-  searchFailure 
+  searchFailure,
+  editArticleLoading,
+  editArticleSuccess,
+  editArticleFailure,
+  successAlert,
+  clearAlert,
 } = articleSlice.actions;
 
 export default articleSlice.reducer;
