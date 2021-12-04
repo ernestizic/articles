@@ -12,6 +12,7 @@ export const fetchAllUsers =()=> async(dispatch, getState) => {
   }
 }
 
+
 // Load user Thunk
 export const loadUser = () => async(dispatch, getState) => {
   const token = getState().users.token;
@@ -32,6 +33,7 @@ export const loadUser = () => async(dispatch, getState) => {
     dispatch(userLoadFailed());
   }
 };
+
 
 // Register user Thunk
 export const registerUser = (formData) => async (dispatch, getState) => {
@@ -87,6 +89,8 @@ export const login = (formData) => async (dispatch, getState) => {
 
 const userSlice = createSlice({
   name: "users",
+
+  // STATE
   initialState: {
     totalUsers: [],
     token: localStorage.getItem("token"),
@@ -96,6 +100,7 @@ const userSlice = createSlice({
     error: null
   },
 
+  // REDUCERS
   reducers: {
     logout: (state, action) => {
       localStorage.removeItem("token");
@@ -226,7 +231,7 @@ const userSlice = createSlice({
 
 });
 
-// Actions generated from slice
+// ACTIONS generated from slice
 export const {
   logout,
   userLoading,

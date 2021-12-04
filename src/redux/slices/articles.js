@@ -13,7 +13,7 @@ export const fetchArticles = createAsyncThunk(
 // get one partcular article
 export const getOneArticle = createAsyncThunk("articles/getOneArticle", async (post_id) => {
     const res = await axios.get(`https://hidden-falls-93050.herokuapp.com/api/v1/article/${post_id}`);
-    return res.data.article;
+    return res.data;
   }
 );
 
@@ -97,6 +97,7 @@ const articleSlice = createSlice({
     postCopy: [],
     loading: false,
     post:[],
+    comments: [],
     error: false,
     searchedPosts: [],
     successMsg: '',
@@ -212,7 +213,8 @@ const articleSlice = createSlice({
       state.loading = true;
     },
     [getOneArticle.fulfilled]: (state, action) => {
-      state.post = action.payload;
+      state.post = action.payload.article;
+      state.comments = action.payload.comments;
       state.loading = false;
       state.error = false;
     },

@@ -5,18 +5,19 @@ import { getOneArticle } from "../../redux/slices/articles";
 import Footer from "../layout/Footer";
 import { TiArrowBack } from 'react-icons/ti'
 import "./postdetail.css";
+import PostComment from "./PostComment";
 
 const PostDetail = () => {
   const { post_id } = useParams();
   const dispatch = useDispatch();
-  const { post } = useSelector((state) => state.articles);
+  const { post, comments } = useSelector((state) => state.articles);
 
   const history = useHistory();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
     dispatch(getOneArticle(post_id));
-  }, [dispatch, post_id]);
+  }, [dispatch, post_id, comments]);
 
   const postDetail = post ? (
     <>
@@ -32,6 +33,11 @@ const PostDetail = () => {
         <h4>{post.title}</h4>
         <p>{post.body}</p>
       </div>
+
+      <PostComment postid={post_id} comments={comments} />
+
+
+
       <Footer />
     </>
   ) : (
