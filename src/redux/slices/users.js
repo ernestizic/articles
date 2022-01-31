@@ -78,6 +78,7 @@ export const login = (formData) => async (dispatch, getState) => {
     dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFailure())
+    console.log(err.response)
     dispatch(authError(err.response.data))
     setTimeout(() => {
       dispatch(clearError())

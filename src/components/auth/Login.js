@@ -32,10 +32,16 @@ const Login = () => {
         e.preventDefault();
         if (!email) {
             setErr({email: "Field cannot be empty"})
+            setTimeout(() => {
+                setErr("")
+            }, 3000);
             return
         }
         if (!password) {
             setErr({password: "Field cannot be empty"})
+            setTimeout(() => {
+                setErr("")
+            }, 3000);
             return
         }
 
