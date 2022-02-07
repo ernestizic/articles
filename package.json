@@ -13,9 +13,11 @@
     "react-dom": "^17.0.1",
     "react-flip-move": "^3.0.4",
     "react-icons": "^4.2.0",
+    "react-onesignal": "^2.0.2",
     "react-redux": "^7.2.5",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.1",
+    "react-toastify": "^8.1.1",
     "redux": "^4.1.1",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"

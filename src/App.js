@@ -24,17 +24,42 @@ import PrivateRoutes from "./PrivateRoutes";
 import SearchModal from "./components/layout/SearchModal";
 import SearchPage from "./components/pages/SearchPage";
 
-const App = () => {
+// toastify imports
+import { ToastContainer, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+import OneSignal from 'react-onesignal';
+
+const App = () => {
+  const appid = process.env.REACT_APP_APP_ID
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadUser())
   }, [dispatch])
 
+  useEffect(() => {
+    OneSignal.init({
+      appId: appid
+    });
+  }, [appid]);
+
   return (
     <BrowserRouter>
       <div className='App'>
+        <ToastContainer 
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          ms transition={Flip}
+        />
+
         <SearchModal />
         <div className='content-wrap'>
           <Switch>

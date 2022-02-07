@@ -12,7 +12,7 @@ const ArticleAddPage = () => {
     const [content, setContent] = useState('')
     const [category, setCategory] = useState('')
     const [selectedFile, setSelectedFile] = useState(null)
-    const [postCreationStatus, setPostCreationStatus] = useState(undefined)
+    // const [postCreationStatus, setPostCreationStatus] = useState(undefined)
     const [errorMsg, setErrorMsg] = useState(null)
 
 
@@ -48,11 +48,11 @@ const ArticleAddPage = () => {
 
         dispatch(addNewArticle(formData))
 
-        setPostCreationStatus({type: 'success'})
-        setTimeout(() => {
-            setPostCreationStatus({type: 'success'})
-            setPostCreationStatus(undefined)
-        }, 2000);
+        // setPostCreationStatus({type: 'success'})
+        // setTimeout(() => {
+        //     setPostCreationStatus({type: 'success'})
+        //     setPostCreationStatus(undefined)
+        // }, 2000);
 
         setTitle('')
         setContent('')
@@ -123,11 +123,11 @@ const ArticleAddPage = () => {
 
                     <button className='btn' type='submit'>Submit</button>
 
-                    {postCreationStatus?.type === 'success' && (
+                    {/* {postCreationStatus?.type === 'success' && (
                         <div className='create-post-success-alert'>
                             Post Created
                         </div>
-                    )}
+                    )} */} 
 
                 </form>
             </div>

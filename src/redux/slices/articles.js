@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 // get all articles
 export const fetchArticles = createAsyncThunk(
@@ -29,6 +30,7 @@ export const deleteArticle = createAsyncThunk('articles/deleteArticle', async (i
     config.headers['authorization'] = `Bearer ${token}`
   }
     const res = await axios.delete(`https://hidden-falls-93050.herokuapp.com/api/v1/article/${id}`,config )
+    toast.error("Article deleted!", { theme: "colored" });
     return res.data.data;
 })
 
@@ -45,7 +47,9 @@ export const addNewArticle = createAsyncThunk('articles/addNewArticle', async (f
   }
     try {
       const res = await axios.post("https://hidden-falls-93050.herokuapp.com/api/v1/articles", formData, config)
+      toast.success("Article added successfully", { theme: "colored" });
       return res.data.data;
+      
     } catch (err) {
       console.log(err)
     }
@@ -67,10 +71,11 @@ export const editArticle =(post_id, formData)=> async(dispatch, getState)=>{
   try {
     const res = await axios.put(`https://hidden-falls-93050.herokuapp.com/api/v1/article/${post_id}`, formData, config)
     dispatch(editArticleSuccess(res.data))
-    dispatch(successAlert())
-    setTimeout(()=> {
-      dispatch(clearAlert())
-    }, 3000)
+    toast.success("Article updated successfully", { theme: "colored" });
+    // dispatch(successAlert())
+    // setTimeout(()=> {
+    //   dispatch(clearAlert())
+    // }, 3000)
   } catch (err) {
     dispatch(editArticleFailure())
   }
